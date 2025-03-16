@@ -1,0 +1,167 @@
+/* General Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #2c3e50, #3498db);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Changed from center to allow scrolling */
+  min-height: 100vh; /* Ensures content is not cut off */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Flex Container for Form and List */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items at the top for better scrolling */
+  width: 90%;
+  max-width: 1200px;
+  gap: 20px;
+}
+/* Shared Styles for Form and List */
+.todo{
+  position:fixed;
+  left: 100px;
+  margin-top: 40px;
+}
+.listitem{
+  position: fixed;
+  margin-top: 40px;
+  right: 100px;
+}
+.todo, .listitem {
+  width: 500px;
+  padding: 23px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  height: auto;
+  overflow-y: auto;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.todo:hover, .listitem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  color: #ffe600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Labels */
+label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Input Fields */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 14px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border: 1px solid #ffe600;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 230, 0, 0.8);
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: linear-gradient(to right, #ffe600, #ff8c00);
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(to right, #ff8c00, #ff5722);
+  transform: translateY(-3px);
+}
+
+
+/* To-Do List */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  background: rgba(255, 255, 255, 0.2);
+  margin: 10px 0px;
+  padding: 15px 20px;  /* Increased padding for wider container */
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  max-width: 1000px; /* Set a maximum width for list items */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+ul li button {
+  margin-left: 10px;
+  padding: 5px 8px;  /* Reduced padding for smaller buttons */
+  font-size: 12px;    /* Reduced font size */
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s;
+}
+
+ul li button:nth-child(2) {
+  background: #ff6b6b;
+}
+
+ul li button:nth-child(2):hover {
+  background: #ff4757;
+}
+
+ul li button:first-child {
+  background: #00d4ff;
+}
+
+ul li button:first-child:hover {
+  background: #00aaff;
+}
+

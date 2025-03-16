@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Application</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="todo">
+        <h2>To-Do Application</h2>
+        <label for="title">Title</label><br>
+        <input id="title" type="text" /><br><br>
+        <label for="description">Description</label><br>
+        <textarea id="description"></textarea><br><br>
+        <button id="btn" onclick="createtodo()">Save</button>
+    </div>
+    <div class="listitem">
+        <h2>To-Do List</h2>
+        <ul id="todoList">
+            <!-- To-Do items will be dynamically inserted here -->
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
