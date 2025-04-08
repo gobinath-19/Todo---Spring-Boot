@@ -9,7 +9,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:2000/todos');
+      const response = await fetch('https://dependable-bravery-production.up.railway.app/');
       const data = await response.json();
       setTodos(data);
     } catch (error) {
