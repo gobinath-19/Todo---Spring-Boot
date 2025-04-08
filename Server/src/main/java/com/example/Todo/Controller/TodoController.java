@@ -13,6 +13,11 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
 
+    @GetMapping("/")
+    public String home() {
+        return "Hello! Your backend is working 🚀";
+    }
+
     @GetMapping
     public List<Todo> getAllTodo(){
         return todoService.getAllTodo();
