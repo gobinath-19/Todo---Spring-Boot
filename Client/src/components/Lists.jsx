@@ -29,7 +29,7 @@ const Lists = ({ todos, onEdit, onDelete }) => {
             </li>
           ))}
         </ul>
-        )}cd 
+        )}
       </div>
     </div>
   );
