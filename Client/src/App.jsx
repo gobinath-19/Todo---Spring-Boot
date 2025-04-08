@@ -9,7 +9,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://dependable-bravery-production.up.railway.app/');
+      const response = await fetch('https://dependable-bravery-production.up.railway.app/todos');
       const data = await response.json();
       setTodos(data);
     } catch (error) {
