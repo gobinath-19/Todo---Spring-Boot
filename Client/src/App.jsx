@@ -9,7 +9,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://dependable-bravery-production.up.railway.app/todos');
+      const response = await fetch('https://dependable-bravery-production.up.railway.app/');
       const data = await response.json();
       setTodos(data);
     } catch (error) {
@@ -19,7 +19,7 @@ function App() {
 
   const createTodo = async (todo) => {
     try {
-      await fetch('http://localhost:2000/todos', {
+      await fetch('https://dependable-bravery-production.up.railway.app/todos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(todo),
@@ -32,7 +32,7 @@ function App() {
 
   const updateTodo = async (todo) => {
     try {
-      await fetch(`http://localhost:2000/todos/${todo.id}`, {
+      await fetch(`https://dependable-bravery-production.up.railway.app/todos/${todo.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(todo),
@@ -46,7 +46,7 @@ function App() {
 
   const deleteTodo = async (id) => {
     try {
-      await fetch(`http://localhost:2000/todos/${id}`, {
+      await fetch(`https://dependable-bravery-production.up.railway.app/todos/${id}`, {
         method: 'DELETE',
       });
       fetchData();
