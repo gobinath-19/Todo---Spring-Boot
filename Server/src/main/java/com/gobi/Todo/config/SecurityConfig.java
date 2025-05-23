@@ -52,7 +52,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5173", "https://todospringboot-client-jfq0ys4s7-gobinaths-projects-150364b7.vercel.app/")); // Allow your frontend URL
+        config.setAllowedOrigins(List.of("http://localhost:5173", "https://todospringboot-client.vercel.app/")); // Allow your frontend URL
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true); // Allow JWT in headers

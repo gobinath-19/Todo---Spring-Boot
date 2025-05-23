@@ -18,6 +18,10 @@ const Signup = () => {
     } 
   };
 
+  const gotoLogin = () =>{
+    navigate('/login')
+  }
+
   return (
     <form
   onSubmit={handleSubmit}
@@ -49,13 +53,24 @@ const Signup = () => {
     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
   />
 
-  <button
-    type="submit"
-    className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
-  >
-    Sign Up
-  </button>
+  
 
+    <div className="flex justify-between">
+        <button
+          type="submit"
+          className="w-1/2 mr-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+        >
+          Sign UP
+        </button>
+    
+        <button
+          type="button" 
+          onClick={gotoLogin}
+          className="w-1/2 ml-2 bg-gray-200 text-gray-800 py-2 rounded-lg hover:bg-gray-300 transition"
+        >
+          Login
+        </button>
+      </div>
   
 </form>
 
