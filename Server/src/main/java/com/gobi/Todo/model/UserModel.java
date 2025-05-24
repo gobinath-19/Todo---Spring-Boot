@@ -3,6 +3,7 @@ package com.gobi.Todo.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.persistence.Id;
@@ -18,6 +19,10 @@ public class UserModel {
     private String id;
 
     private String email;
+
+    @Indexed(unique = true) 
     private String username;
+
+
     private String password;
 }

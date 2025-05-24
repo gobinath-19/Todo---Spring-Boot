@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface TodoRepository extends MongoRepository<TodoModel, String> {
     List<TodoModel> findByUserId(String userId);
-    Optional<TodoModel> findByIdAndUserId(String id, String userId);
+    Optional<TodoModel> findByIdAndUserId(String id, String userId); 
 }
