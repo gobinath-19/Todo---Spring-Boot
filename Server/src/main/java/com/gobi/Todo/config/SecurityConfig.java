@@ -31,20 +31,19 @@ public class SecurityConfig {
     @Autowired
     private JwtFilter jwtFilter;
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .cors() // ✅ Enable CORS
-                .and()
-                .csrf(csrf -> csrf.disable())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/todo/**").authenticated()
-                        .anyRequest().permitAll())
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+   @Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ✅ This line is very important!
+        .csrf(csrf -> csrf.disable())
+        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+        .authorizeHttpRequests(authz -> authz
+            .requestMatchers("/todo/**").authenticated()
+            .anyRequest().permitAll())
+        .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
-        return http.build();
-    }
+    return http.build();
+}
 
     // ✅ Define your custom CORS configuration here
     @Bean
