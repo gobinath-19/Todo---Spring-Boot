@@ -19,7 +19,6 @@ import com.gobi.Todo.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "https://todospringboot-client.vercel.app")
 public class UserController {
     @Autowired
     private UserService userService;

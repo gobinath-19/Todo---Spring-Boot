@@ -22,7 +22,6 @@ import com.gobi.Todo.service.TodoService;
 
 @RestController
 @RequestMapping("/todo")
-@CrossOrigin(origins = "https://todospringboot-client.vercel.app")
 public class TodoController {
 
     @Autowired

@@ -20,7 +20,6 @@ import com.gobi.Todo.model.UserModel;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "https://todospringboot-client.vercel.app")
 public class AuthController {
 
 

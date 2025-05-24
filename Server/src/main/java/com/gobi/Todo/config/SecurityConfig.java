@@ -31,35 +31,36 @@ public class SecurityConfig {
     @Autowired
     private JwtFilter jwtFilter;
 
-   @Bean
-public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    http
-        .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ✅ This line is very important!
-        .csrf(csrf -> csrf.disable())
-        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .authorizeHttpRequests(authz -> authz
-            .requestMatchers("/todo/**").authenticated()
-            .anyRequest().permitAll())
-        .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
-    return http.build();
-}
-
-    // ✅ Define your custom CORS configuration here
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of(
-                "http://localhost:5173",
-                "https://todospringboot-client.vercel.app"));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true); // Allow JWT in headers
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ✅ Must be present
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(authz -> authz
+                        .requestMatchers("/todo/**").authenticated()
+                        .anyRequest().permitAll())
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config); // Apply to all endpoints
-        return source;
+        return http.build();
     }
+
+    
+@Bean
+public CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration config = new CorsConfiguration();
+    config.setAllowedOrigins(List.of(
+        "http://localhost:5173",
+        "https://todospringboot-client.vercel.app" // ✅ Correct origin
+    ));
+    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+    config.setAllowedHeaders(List.of("*")); // ✅ Accept all headers
+    config.setAllowCredentials(true); // ✅ Important for cookies or Authorization header
+
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", config);
+    return source;
+}
 
     @Bean
     public UserDetailsService userDetailsService() {
