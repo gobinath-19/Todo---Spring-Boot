@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.gobi.Todo.TodoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 69.53 s -- in com.gobi.Todo.TodoApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 43.56 s -- in com.gobi.Todo.TodoApplicationTests
