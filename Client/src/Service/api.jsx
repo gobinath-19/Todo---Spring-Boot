@@ -3,9 +3,7 @@ import { getToken } from '../Utils/token';
 
 const api = axios.create({
 
-  baseURL: 'http://localhost:2000',
-
-  //https://todo-spring-boot-t3w6.onrender.com
+  baseURL: 'https://todo-spring-boot-t3w6.onrender.com',
 
 });
 

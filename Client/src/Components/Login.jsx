@@ -14,7 +14,7 @@ const Login = () => {
       saveToken(res.data.token);
       navigate('/Home');
     } catch (err) {
-      alert("Login failed");
+      alert("Incorrect Username or Password!");
     }
   };
 
