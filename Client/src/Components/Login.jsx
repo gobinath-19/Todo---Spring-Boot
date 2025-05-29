@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { login } from '../Service/AuthService';
 import { saveToken } from '../Utils/token';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const [formData, setFormData] = useState({ username: '', password: '' });
@@ -14,7 +15,7 @@ const Login = () => {
       saveToken(res.data.token);
       navigate('/Home');
     } catch (err) {
-      alert("Incorrect Username or Password!");
+      toast.error('Incorrect Username or Password!');
     }
   };
 
