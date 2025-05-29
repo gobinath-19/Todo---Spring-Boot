@@ -14,7 +14,7 @@ const Signup = () => {
       toast.success('Sign Up successfully');
       navigate('/login');
     } catch (err) {
-      if (err.response?.status === 409) {
+      if (err.response?.status === 500) {
         toast.error('Username already exists');
       } else {
         toast.error('Signup failed. Try again later.');
